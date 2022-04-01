@@ -5,6 +5,6 @@ require('colors');
 
 const config = require('../app.config.json');
 
-app.listen(config.PORT, () => {
-  console.log(`\n- Server running on port ${config.PORT} -`.magenta);
+app.listen(config.SERVER_PORT, () => {
+  console.log(`\n- Server running on port ${config.SERVER_PORT} -`.magenta);
 });
