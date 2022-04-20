@@ -1,6 +1,7 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const authModel = require('../models/auth.model');
 
@@ -87,10 +88,20 @@ async function login(request, response, next) {
     });
   }
 
+  // Generate jwt
+  const signedJWT = jwt.sign(
+    {
+      sub: foundUser._id,
+      email: foundUser.email,
+    },
+    process.env.JWT_SECRET
+  );
+
   return response.status(200).send({
     displayName: foundUser.displayName,
     age: foundUser.age,
     email: foundUser.email,
+    token: signedJWT,
   });
 }
 
