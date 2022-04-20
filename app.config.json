@@ -3,5 +3,6 @@
   "MONGODB_URI": "mongodb://localhost:27017",
   "MONGODB_CONFIG": {
     "dbName": "relax"
-  }
+  },
+  "BCRYPT_SALT_ROUNDS": 10
 }

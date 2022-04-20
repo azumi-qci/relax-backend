@@ -3,7 +3,9 @@ const database = require('../database');
 const { Schema } = database;
 
 const UserSchema = new Schema({
-  username: String,
+  displayName: String,
+  age: Number,
+  email: String,
   password: String,
 });
 
