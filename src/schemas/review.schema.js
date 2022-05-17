@@ -5,7 +5,10 @@ const { Schema } = database;
 const ReviewSchema = new Schema({
   activity: String,
   email: String,
-  review_time: Date,
+  review_time: {
+    type: Date,
+    default: Date.now,
+  },
   score: Number,
 });
 

@@ -7,7 +7,11 @@ const { Schema } = database;
 const ActivitySchema = new Schema({
   name: String,
   type: String,
-  addition_time: Date,
+  bgURL: String,
+  addition_time: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Activity = database.model('Activity', ActivitySchema);
