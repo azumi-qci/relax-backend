@@ -36,9 +36,9 @@ async function getActivities(request, response, next) {
 
   const ans = knn.predict(reviewsDataset);
 
-  console.log(ans);
+  const predictions = activities.filter((value) => ans.includes(value.name));
 
-  return response.status(200).send([...activities]);
+  return response.status(200).send([...predictions.slice(0, 3)]);
 }
 
 module.exports = { getActivities };
