@@ -6,8 +6,10 @@ const { Schema } = database;
 
 const ActivitySchema = new Schema({
   name: String,
-  type: String,
   bgURL: String,
+  stress: Number,
+  anxiety: Number,
+  anger: Number,
   addition_time: {
     type: Date,
     default: Date.now,

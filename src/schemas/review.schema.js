@@ -1,9 +1,10 @@
 const database = require('../database');
+const { ActivitySchema } = require('./activity.schema');
 
 const { Schema } = database;
 
 const ReviewSchema = new Schema({
-  activity: String,
+  activity: ActivitySchema,
   email: String,
   review_time: {
     type: Date,
