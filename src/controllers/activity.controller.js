@@ -34,11 +34,15 @@ async function getActivities(request, response, next) {
     item.activity.anger,
   ]);
 
-  const ans = knn.predict(reviewsDataset);
+  if (reviewsDataset.length >= 3) {
+    const ans = knn.predict(reviewsDataset);
 
-  const predictions = activities.filter((value) => ans.includes(value.name));
+    const predictions = activities.filter((value) => ans.includes(value.name));
 
-  return response.status(200).send([...predictions.slice(0, 3)]);
+    return response.status(200).send([...predictions.slice(0, 3)]);
+  }
+
+  return response.status(200).send([...activities.slice(0, 3)]);
 }
 
 module.exports = { getActivities };
