@@ -1,5 +1,4 @@
 const database = require('../database');
-const { UserSchema } = require('./user.schema');
 
 const { Schema } = database;
 
